@@ -1,0 +1,44 @@
+body {
+    background-color: #e0f7fa; /* Light blue background */
+    font-family: 'Arial', sans-serif; /* Font family */
+    color: #333; /* Font color */
+}
+
+header {
+    background-color: #004d99; /* Dark blue */
+    color: white;
+    padding: 20px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #004d99; /* Dark blue color for headings */
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.container {
+    background-color: #ffffff; /* White background for container */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for fancy look */
+}
+
+p {
+    font-size: 18px; /* Font size for paragraphs */
+}
+
+ul {
+    list-style-type: circle; /* Custom list style */
+}
+
+footer {
+    background-color: #004d99; /* Dark blue */
+    color: white;
+    padding: 20px;
+}
