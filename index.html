@@ -1,13 +1,9 @@
-git add .
-git commit -m "Initial commit"
-git push origin main
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baking Delights</title>
+    <title>Baking With Chase!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -22,40 +18,59 @@ git push origin main
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            background-color: #ffffff; /* White background for sections */
+            background-color: #ced1d6ef; /* White background for sections */
+        }
+        
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        .testimonial {
+            background-color: #ced1d6ef;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
         }
     </style>
+    <script type='module' src='https://mpt.meningitis.org/javascripts/api/tableau.embedding.3.latest.min.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header class="bg-primary text-white text-center py-5">
-        <h1>Chases Baking Journey</h1>
-        <p>Welcome to my baking page!</p>
+        <div class="container">
+            <h1 style="color: #0758b4;">Chase's Baking Journey</h1>
+            <p style="color: #0758b4;">Welcome to my baking page!</p>
+        </div>
     </header>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Baking Delights</a>
+        <a class="navbar-brand" href="#"><i class="fas fa-cookie-bite"></i> Baking With Chase!</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#recipes">Recipes</a>
+                    <a class="nav-link" href="#recipes"><i class="fas fa-book-open"></i> Recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#gallery">Gallery</a>
+                    <a class="nav-link" href="#gallery"><i class="fas fa-images"></i> Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#video">Video</a>
+                    <a class="nav-link" href="#video"><i class="fas fa-video"></i> Video</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#graph">Baking Trends</a>
+                    <a class="nav-link" href="#graph"><i class="fas fa-chart-line"></i> Tableau</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials"><i class="fas fa-comments"></i> Reviews</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="professional-page.html">Professional Page</a>
+                    <a class="nav-link" href="professional-page.html"><i class="fas fa-file-alt"></i> Chase's Resume</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="snake-game.html">Snake Game</a>
+                    <a class="nav-link" href="snake-game.html"><i class="fas fa-gamepad"></i> Snake Game</a>
                 </li>
             </ul>
         </div>
@@ -65,6 +80,7 @@ git push origin main
         <section id="intro" class="section mb-5">
             <div class="text-center">
                 <h2>About Baking</h2>
+                
                 <p>Baking is a delightful culinary art that brings joy and delicious treats. Whether you're a novice or an experienced baker, there's always something new to learn and create in the world of baking.</p>
             </div>
         </section>
@@ -75,7 +91,7 @@ git push origin main
                 <div class="p-2">
                     <h3>Cakes</h3>
                     <ul>
-                        <li>Chocolate Cake</li>
+                        <li><a href="https://www.bbcgoodfood.com/recipes/easy-chocolate-cake">Chocolate Cake</a></li>
                         <li>Vanilla Sponge Cake</li>
                         <li>Red Velvet Cake</li>
                     </ul>
@@ -83,7 +99,7 @@ git push origin main
                 <div class="p-2">
                     <h3>Cookies</h3>
                     <ul>
-                        <li>Chocolate Chip Cookies</li>
+                        <li><a href="https://cooking.nytimes.com/recipes/1015819-chocolate-chip-cookies">Chocolate Chip Cookies</a></li>
                         <li>Oatmeal Raisin Cookies</li>
                         <li>Peanut Butter Cookies</li>
                     </ul>
@@ -91,7 +107,7 @@ git push origin main
                 <div class="p-2">
                     <h3>Breads</h3>
                     <ul>
-                        <li>Sourdough Bread</li>
+                        <li><a href="https://www.bbc.co.uk/food/recipes/how_to_make_sourdough_08213">Sourdough Bread</a></li>
                         <li>Baguette</li>
                         <li>Focaccia</li>
                     </ul>
@@ -102,32 +118,86 @@ git push origin main
         <section id="gallery" class="section mb-5">
             <h2>Gallery</h2>
             <div class="text-center">
-                <img src="baking_image.jpg" class="img-fluid rounded mb-3" alt="Delicious baked goods">
-                <img src="new_baking_image.jpg" class="img-fluid rounded" alt="Another delicious baked good">
+                <img src="baking_image.jpg" class="gallery-img img-fluid rounded mb-3" alt="Delicious baked goods">
+                <img src="new_baking_image.jpg" class="gallery-img img-fluid rounded mb-3" alt="Another delicious baked good">
+                <img src="baked.jpg" class="gallery-img img-fluid rounded mb-3" alt="Delicious baked goods">
             </div>
         </section>
+        
         
         <section id="video" class="section mb-5">
             <h2>Baking Video Tutorial</h2>
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=e8tymUqV2-4" allowfullscreen></iframe>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/e8tymUqV2-4" allowfullscreen></iframe>
             </div>
         </section>
         
         <section id="graph" class="section mb-5">
-            <h2>Baking Trends</h2>
-            <iframe src="https://public.tableau.com/app/profile/alight.analytics/viz/PaidMediaDashboard/PaidMediaTemplateConversions" class="w-100" style="height:500px;"></iframe>
+            <h2>Tableau</h2>
+            <tableau-viz id='tableau-viz' src='https://mpt.meningitis.org/views/MeningitisandNeonatalSepsisTracker/CasesandDeaths' width='1150' height='950' toolbar='bottom' ></tableau-viz>
+        </section>
+        
+        <section id="feedback" class="section mb-5">
+            <h2>Feedback Survey</h2>
+            <form action="your_backend_script" method="post">
+                <div class="form-group">
+                    <label for="name">Name (optional):</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (optional):</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="rating">How would you rate your experience on this page?</label>
+                    <select class="form-control" id="rating" name="rating" required>
+                        <option value="" disabled selected>Select your option</option>
+                        <option value="1">1 - Very Poor</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Good</option>
+                        <option value="5">5 - Excellent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Any comments or suggestions?</label>
+                    <textarea class="form-control" id="comments" name="comments" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+        </section>
+        
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+        
+        <section id="testimonials" class="section mb-5">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <p>"Chase's baking is absolutely delicious! I loved every bite of the chocolate cake."</p>
+                <p>- Happy Customer</p>
+            </div>
+            <div class="testimonial">
+                <p>"The sourdough bread was perfect. I could tell it was made with a lot of care and skill."</p>
+                <p>- Satisfied Customer</p>
+            </div>
         </section>
     </div>
     
     <footer class="bg-primary text-white text-center py-3">
         <p><a href="#intro" class="text-white">Back to Top</a></p>
-        <p><a href="professional-page.html" class="text-white">Back to Professional Page</a></p>
+        <p><a href="professional-page.html" class="text-white">Resume</a></p>
         <p><a href="extra-page.html" class="text-white">Extra Page</a></p> <!-- Include this link if you are a graduate student -->
     </footer>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js[_{{{CITATION{{{_1{](https://github.com/johanwis/le_monde_du_gaming/tree/749c93c4137dead8d1cee38136411e91b14d3850/index.php)[_{{{CITATION{{{_2{](https://github.com/j-heart/Mangas/tree/f74e0af35959c37eb78b8678775353fcc46a09ac/resources%2Fviews%2Findex.blade.php)[_{{{CITATION{{{_3{](https://github.com/Agilbay04/VLMS-JTI/tree/ac9dee3ecf421da62ff9cf5b76dee9de633b83de/bootstrap-4.6.0%2Fsite%2Fcontent%2Fdocs%2F4.6%2Fcomponents%2Fnavbar.md)[_{{{CITATION{{{_4{](https://github.com/YRZZ/laravel_exam1/tree/9ea034cadbb2eb94ac89f0e3f251dae25683b398/resources%2Fviews%2Flayouts%2Fbase.blade.php)[_{{{CITATION{{{_5{](https://github.com/bhaynie03/adonis/tree/56fb8f6899d4828d027e5eb285bcbf2139dd10ff/resources%2Fviews%2Fregistrations%2Fcreate.blade.php)[_{{{CITATION{{{_6{](https://github.com/4oh3/austins-portfolio/tree/16be428702a9b400e15fe1b2407a3fa115693af9/resources%2Fviews%2Fwelcome.blade.php)[_{{{CITATION{{{_7{](https://github.com/floodcode/crowdin-blog/tree/adcd54b051affdd52a6a5f9a5945ae0b323daba5/application%2Fviews%2Fcontact_view.php)[_{{{CITATION{{{_8{](https://github.com/theFulahPhpDev/fyp/tree/80e75ec3f03e725dd052fe2c3a2d2ee6a84196bc/contact.php)[_{{{CITATION{{{_9{](https://github.com/MatthewShields/twitter-message-drafter/tree/8f696571201b3bd78c38f4c3d635f6d5695950b6/index.php)[_{{{CITATION{{{_10{](https://github.com/AmirulAhsanSimon/ProtectPets/tree/1e3265e4a4552228f5f1a51f17baf9cf020b5d41/footer.php)
