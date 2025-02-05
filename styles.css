@@ -1,3 +1,4 @@
+/* Basic Styles */
 body {
     background-color: #e0f7fa; /* Light blue background */
     font-family: 'Arial', sans-serif; /* Font family */
@@ -41,4 +42,99 @@ footer {
     background-color: #004d99; /* Dark blue */
     color: white;
     padding: 20px;
+}
+
+/* Hover Effects */
+a:hover {
+    color: #0066cc; /* Change color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+button:hover {
+    background-color: #004d99; /* Dark blue background on hover */
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Buttons */
+button {
+    background-color: #004d99; /* Dark blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003366; /* Darker blue on hover */
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Box Shadow */
+.box-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Image */
+.hero-image {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+/* Contact Form */
+form {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Testimonials */
+.testimonial {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+/* Gallery Images */
+.gallery-img {
+    width: 300px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover; /* Ensure the image covers the entire area without stretching */
 }
