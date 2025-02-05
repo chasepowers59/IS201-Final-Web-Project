@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
+    <title>Chase's Snake Game</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #e0f7fa;
@@ -12,43 +14,117 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+        #game-container {
+            text-align: center;
+            background-image: url('https://source.unsplash.com/random/400x400?game');
+            background-size: cover;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, #score, #highScore, #level {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         canvas {
             background-color: #004d99;
             border: 2px solid #ffffff;
         }
-        #game-container {
-            text-align: center;
+        button {
+            margin: 5px;
         }
-        h1 {
+        .modal-content {
+            background-color: #004d99;
             color: #ffffff;
         }
     </style>
 </head>
 <body>
-    <div id="game-container">
-        <h1>Snake Game</h1>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <p>Use arrow keys to play</p>
-        <p id="score">Score: 0</p>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div id="game-container" class="card bg-dark text-white">
+                    <div class="card-header text-center">
+                        <h1>Chase's Snake Game</h1>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="gameCanvas" width="400" height="400"></canvas>
+                        <p class="mt-3">Use arrow keys to play | Press P to Pause/Resume</p>
+                        <p id="score">Score: 0</p>
+                        <p id="highScore">High Score: 0</p>
+                        <p id="level">Level: 1</p>
+                        <button id="pauseBtn" class="btn btn-warning">Pause</button>
+                        <button id="restartBtn" class="btn btn-success">Restart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div class="modal fade" id="gameOverModal" tabindex="-1" aria-labelledby="gameOverLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gameOverLabel">Game Over</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="gameOverMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="restartBtnModal">Restart</button>
+                </div>
+            </div>
+        </div>
     </div>
     
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
         const box = 20;
         let score = 0;
+        let highScore = 0;
+        let level = 1;
+        let gamePaused = false;
+        let game;
 
         let snake = [];
-        snake[0] = { x: 9 * box, y: 10 * box };
+        let food;
 
-        let food = {
-            x: Math.floor(Math.random() * 19 + 1) * box,
-            y: Math.floor(Math.random() * 19 + 1) * box
-        };
+        function initializeGame() {
+            score = 0;
+            level = 1;
+            gamePaused = false;
+            snake = [{ x: 9 * box, y: 10 * box }];
+            d = undefined;
+            document.getElementById("score").innerText = "Score: 0";
+            document.getElementById("level").innerText = "Level: 1";
+            document.getElementById("pauseBtn").innerText = "Pause";
+            food = {
+                x: Math.floor(Math.random() * 19 + 1) * box,
+                y: Math.floor(Math.random() * 19 + 1) * box
+            };
+            clearInterval(game);
+            game = setInterval(draw, 100);
+        }
 
         document.addEventListener("keydown", direction);
+        document.addEventListener("keydown", togglePause);
+        document.getElementById("pauseBtn").addEventListener("click", togglePause);
+        document.getElementById("restartBtn").addEventListener("click", initializeGame);
+        document.getElementById("restartBtnModal").addEventListener("click", () => {
+            $('#gameOverModal').modal('hide');
+            initializeGame();
+        });
 
         let d;
 
@@ -64,6 +140,13 @@
             }
         }
 
+        function togglePause(event) {
+            if (event.type === "keydown" && event.keyCode == 80 || event.type === "click") {
+                gamePaused = !gamePaused;
+                document.getElementById("pauseBtn").innerText = gamePaused ? "Resume" : "Pause";
+            }
+        }
+
         function collision(newHead, array) {
             for (let i = 0; i < array.length; i++) {
                 if (newHead.x == array[i].x && newHead.y == array[i].y) {
@@ -74,6 +157,8 @@
         }
 
         function draw() {
+            if (gamePaused) return;
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             for (let i = 0; i < snake.length; i++) {
@@ -96,7 +181,20 @@
 
             if (snakeX == food.x && snakeY == food.y) {
                 score++;
+                if (score > highScore) {
+                    highScore = score;
+                    document.getElementById("highScore").innerText = "High Score: " + highScore;
+                }
                 document.getElementById("score").innerText = "Score: " + score;
+
+                // Increase level and speed every 5 points
+                if (score % 5 == 0) {
+                    level++;
+                    clearInterval(game);
+                    game = setInterval(draw, 100 - (level * 10));
+                    document.getElementById("level").innerText = "Level: " + level;
+                }
+
                 food = {
                     x: Math.floor(Math.random() * 19 + 1) * box,
                     y: Math.floor(Math.random() * 19 + 1) * box
@@ -111,14 +209,15 @@
             };
 
             if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
+                $('#gameOverModal').modal('show');
+                document.getElementById("gameOverMessage").innerText = "Game Over! Your score: " + score + "\nHigh Score: " + highScore;
                 clearInterval(game);
-                alert("Game Over! Your score: " + score);
             }
 
             snake.unshift(newHead);
         }
 
-        let game = setInterval(draw, 100);
+        initializeGame();
     </script>
 </body>
 </html>
