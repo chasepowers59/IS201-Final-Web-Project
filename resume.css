@@ -1,0 +1,76 @@
+/* Basic Layout */
+body {
+    font-family: Arial, sans-serif; /* Font family */
+    color: #333; /* Font color */
+    background-color: #f7f7f7; /* Light grey background */
+    margin: 0;
+    padding: 0;
+}
+
+.container.resume {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff; /* White background for resume */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for fancy look */
+    border-radius: 8px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #004d99; /* Dark blue color for name */
+    margin: 0;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #4CAF50; /* Green color for section headings */
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.section h4 {
+    font-size: 20px;
+    color: #004d99; /* Dark blue color for job titles and education */
+    margin: 5px 0;
+}
+
+.section p, .section ul {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.list-group-item {
+    border: none; /* Remove border from list group items */
+    background-color: transparent; /* Transparent background for list group items */
+    padding-left: 0; /* Remove left padding */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container.resume {
+        width: 95%;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+}
