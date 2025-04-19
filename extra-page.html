@@ -67,6 +67,17 @@
         .image-container img {
             border-radius: 5px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            max-width: 100%;
+            height: auto;
+        }
+        /* Specific image size controls */
+        .img-medium {
+            width: 350px;
+            height: auto;
+        }
+        .img-small {
+            width: 250px;
+            height: auto;
         }
         .testimony {
             background-color: #f5f9ff;
@@ -162,6 +173,7 @@
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         .nav-links a {
             color: #1c4587;
@@ -170,18 +182,104 @@
         .nav-links a:hover {
             text-decoration: underline;
         }
+        /* New functionality styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1c4587;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            display: none;
+        }
+        .back-to-top:hover {
+            opacity: 1;
+        }
+        .accordion-header {
+            background-color: #e8f0fa;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            color: #1c4587;
+            font-weight: bold;
+        }
+        .accordion-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .show-content {
+            max-height: 500px;
+            padding: 15px;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .visible {
+            opacity: 1;
+        }
+        .quote-generator {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        #scripture-quote {
+            font-style: italic;
+            margin: 15px 0;
+        }
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #f8f6f2;
+            z-index: 1000;
+        }
+        #progress-bar {
+            height: 5px;
+            background-color: #c9a44d;
+            width: 0%;
+        }
+        .bookmark {
+            display: inline-block;
+            background-color: #c9a44d;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
     <header>
         <h1>My Journey with Jesus Christ</h1>
         <p class="subtitle">How serving an LDS mission transformed my life and strengthened my faith</p>
     </header>
 
     <section id="testimony">
-        <h2>My Testimony of Jesus Christ</h2>
+        <h2>My Testimony of Jesus Christ <span class="bookmark" onclick="bookmarkSection('testimony')">Save</span></h2>
         <div class="image-container">
-            <img src="jesus.jpg" alt="Jesus Christ Image">
+            <img src="jesus.jpg" alt="Jesus Christ Image" class="img-medium">
         </div>
         <div class="testimony">
             <p>My love for Jesus Christ is the foundation of my life. I have come to know Him as my Savior, Redeemer, and friend through personal study, prayer, and experiences that have confirmed His reality and love for me. His teachings guide my decisions, and His atonement gives me hope when I fall short.</p>
@@ -197,31 +295,31 @@
     </section>
 
     <section id="mission-experience">
-        <h2>My Mission Experience</h2>
+        <h2>My Mission Experience <span class="bookmark" onclick="bookmarkSection('mission-experience')">Save</span></h2>
         <div class="image-container">
-            <img src="chases.jpg" alt="Mission Service Photo">
+            <img src="chases.jpg" alt="Mission Service Photo" class="img-medium">
         </div>
         
         <h3>Call to Serve</h3>
         <p>Serving a mission for The Church of Jesus Christ of Latter-day Saints was a pivotal experience in my spiritual journey. When I received my mission call, I felt a mixture of excitement and nervousness about dedicating two years of my life to sharing the gospel of Jesus Christ.</p>
         
         <div class="timeline">
-            <div class="timeline-item">
+            <div class="timeline-item fade-in">
                 <div class="timeline-date">Pre-Mission Preparation</div>
                 <p>Before my mission, I focused on deepening my understanding of the scriptures, particularly the Book of Mormon. I attended the temple, sought spiritual guidance, and prepared myself mentally and emotionally for the challenges ahead.</p>
             </div>
             
-            <div class="timeline-item">
+            <div class="timeline-item fade-in">
                 <div class="timeline-date">Missionary Training Center</div>
                 <p>My time at the MTC was intense but rewarding. I developed teaching skills, studied the doctrines of the gospel, and learned to better communicate my testimony of Jesus Christ. This foundation prepared me for the field.</p>
             </div>
             
-            <div class="timeline-item">
+            <div class="timeline-item fade-in">
                 <div class="timeline-date">In the Mission Field</div>
                 <p>Serving in my assigned mission brought daily opportunities to witness the power of Christ's teachings in people's lives. From teaching discussions to performing service, each experience helped me see the world through His eyes.</p>
             </div>
             
-            <div class="timeline-item">
+            <div class="timeline-item fade-in">
                 <div class="timeline-date">Return and Integration</div>
                 <p>Returning home from my mission wasn't the end of my service—it was the beginning of applying what I had learned to the rest of my life. The mission provided lessons and experiences that continue to shape who I am today.</p>
             </div>
@@ -229,25 +327,25 @@
     </section>
 
     <section id="lessons-learned">
-        <h2>Life-Changing Lessons from My Mission</h2>
+        <h2>Life-Changing Lessons from My Mission <span class="bookmark" onclick="bookmarkSection('lessons-learned')">Save</span></h2>
         
-        <div class="lesson-learned">
-            <h3>The Power of Daily Discipleship</h3>
+        <div class="accordion-header">The Power of Daily Discipleship</div>
+        <div class="accordion-content">
             <p>My mission taught me the importance of daily scripture study, prayer, and ministering to others. These habits formed on my mission have become essential parts of my daily life, helping me maintain my connection with Christ.</p>
         </div>
         
-        <div class="lesson-learned">
-            <h3>Resilience Through Adversity</h3>
+        <div class="accordion-header">Resilience Through Adversity</div>
+        <div class="accordion-content">
             <p>Facing rejection, navigating cultural differences, and overcoming personal limitations taught me resilience. I learned that with Christ's help, I could do difficult things and grow through challenges rather than being defeated by them.</p>
         </div>
         
-        <div class="lesson-learned">
-            <h3>The Gift of Empathy</h3>
+        <div class="accordion-header">The Gift of Empathy</div>
+        <div class="accordion-content">
             <p>Meeting people from all walks of life expanded my capacity to understand and connect with others. I learned to listen without judgment and see each person as a beloved child of God with their own unique journey.</p>
         </div>
         
-        <div class="lesson-learned">
-            <h3>The Joy of Service</h3>
+        <div class="accordion-header">The Joy of Service</div>
+        <div class="accordion-content">
             <p>Whether helping someone move, cleaning up after a natural disaster, or simply offering a listening ear, service brought genuine happiness. I discovered that Christ's teachings about losing yourself in service to find yourself are profoundly true.</p>
         </div>
         
@@ -258,7 +356,7 @@
     </section>
 
     <section id="spiritual-growth">
-        <h2>Spiritual Milestones During My Mission</h2>
+        <h2>Spiritual Milestones During My Mission <span class="bookmark" onclick="bookmarkSection('spiritual-growth')">Save</span></h2>
         <table>
             <thead>
                 <tr>
@@ -293,7 +391,7 @@
     </section>
 
     <section id="continuing-discipleship">
-        <h2>Following Christ Today</h2>
+        <h2>Following Christ Today <span class="bookmark" onclick="bookmarkSection('continuing-discipleship')">Save</span></h2>
         <p>My mission was not just a chapter in my life but a foundation for ongoing discipleship. Today, I continue to follow Jesus Christ by:</p>
         
         <ul>
@@ -305,7 +403,7 @@
         </ul>
         
         <div class="image-container">
-            <img src="chase.jpg" alt="Temple Image">
+            <img src="chase.jpg" alt="Temple Image" class="img-medium">
         </div>
         
         <div class="scripture">
@@ -314,11 +412,20 @@
         </div>
     </section>
 
+    <section id="scripture-inspiration">
+        <h2>Daily Scripture Inspiration <span class="bookmark" onclick="bookmarkSection('scripture-inspiration')">Save</span></h2>
+        <div class="quote-generator">
+            <p>Click the button below to receive an inspiring scripture:</p>
+            <div id="scripture-quote">Your inspiration will appear here...</div>
+            <button onclick="generateScripture()">New Scripture</button>
+        </div>
+    </section>
+
     <section id="share-thoughts">
-        <h2>Share Your Faith Journey</h2>
+        <h2>Share Your Faith Journey <span class="bookmark" onclick="bookmarkSection('share-thoughts')">Save</span></h2>
         <p>I'd love to hear about your spiritual experiences and how Christ has impacted your life.</p>
         
-        <form action="#" method="post">
+        <form action="#" method="post" id="testimony-form">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Your name">
@@ -352,7 +459,127 @@
             <a href="#lessons-learned">Lessons Learned</a>
             <a href="#spiritual-growth">Spiritual Growth</a>
             <a href="#continuing-discipleship">Following Christ Today</a>
+            <a href="#scripture-inspiration">Scripture Inspiration</a>
+            <a href="#share-thoughts">Share Your Experience</a>
         </nav>
     </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top">↑</a>
+
+    <script>
+        // Back to top button functionality
+        window.onscroll = function() {
+            scrollFunction();
+            updateProgressBar();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+            
+            // Check for elements to fade in
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Progress bar
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        }
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                content.classList.toggle('show-content');
+                
+                // Close other open accordions
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== header) {
+                        otherHeader.nextElementSibling.classList.remove('show-content');
+                    }
+                });
+            });
+        });
+
+        // Scripture generator
+        function generateScripture() {
+            const scriptures = [
+                {quote: "I can do all things through Christ which strengtheneth me.", reference: "Philippians 4:13"},
+                {quote: "Trust in the Lord with all thine heart; and lean not unto thine own understanding.", reference: "Proverbs 3:5"},
+                {quote: "And by the power of the Holy Ghost ye may know the truth of all things.", reference: "Moroni 10:5"},
+                {quote: "Be thou humble; and the Lord thy God shall lead thee by the hand, and give thee answer to thy prayers.", reference: "D&C 112:10"},
+                {quote: "If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.", reference: "James 1:5"},
+                {quote: "For behold, this is my work and my glory—to bring to pass the immortality and eternal life of man.", reference: "Moses 1:39"},
+                {quote: "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.", reference: "John 14:27"}
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * scriptures.length);
+            const scriptureElement = document.getElementById('scripture-quote');
+            
+            scriptureElement.innerHTML = scriptures[randomIndex].quote + 
+                                         '<span class="scripture-reference">' + 
+                                         scriptures[randomIndex].reference + 
+                                         '</span>';
+        }
+
+        // Form validation
+        document.getElementById('testimony-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const experience = document.getElementById('experience').value;
+            
+            if (!name || !email || !experience) {
+                alert('Please fill out all required fields.');
+                return;
+            }
+            
+            // Form submission would happen here in a real application
+            alert('Thank you for sharing your experience! In a real application, this would be submitted.');
+            this.reset();
+        });
+
+        // Bookmarking functionality
+        function bookmarkSection(sectionId) {
+            // In a real application, this would save to localStorage or a database
+            alert('Section bookmarked! In a real application, this would save your bookmark.');
+            
+            // Create visual feedback
+            const bookmarkButton = event.target;
+            const originalText = bookmarkButton.innerText;
+            
+            bookmarkButton.innerText = "Saved!";
+            bookmarkButton.style.backgroundColor = "#3c6e9c";
+            
+            setTimeout(() => {
+                bookmarkButton.innerText = originalText;
+                bookmarkButton.style.backgroundColor = "#c9a44d";
+            }, 2000);
+        }
+
+        // Initialize
+        window.onload = function() {
+            // Set first accordion open by default
+            document.querySelector('.accordion-header').click();
+            
+            // Generate first scripture
+            generateScripture();
+        };
+    </script>
 </body>
 </html>
