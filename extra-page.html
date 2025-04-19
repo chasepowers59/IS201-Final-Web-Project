@@ -554,23 +554,7 @@
             this.reset();
         });
 
-        // Bookmarking functionality
-        function bookmarkSection(sectionId) {
-            // In a real application, this would save to localStorage or a database
-            alert('Section bookmarked! In a real application, this would save your bookmark.');
-            
-            // Create visual feedback
-            const bookmarkButton = event.target;
-            const originalText = bookmarkButton.innerText;
-            
-            bookmarkButton.innerText = "Saved!";
-            bookmarkButton.style.backgroundColor = "#3c6e9c";
-            
-            setTimeout(() => {
-                bookmarkButton.innerText = originalText;
-                bookmarkButton.style.backgroundColor = "#c9a44d";
-            }, 2000);
-        }
+    
 
         // Initialize
         window.onload = function() {
