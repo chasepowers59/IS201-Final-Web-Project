@@ -3,77 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chase Powers - Résumé</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resume.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .resume {
-            padding: 20px;
-        }
-        .section-title {
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Chase Powers - Resume</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
 </head>
 <body>
-    <div class="container resume">
-        <header class="text-center mb-4">
-            <h1>Chase Powers</h1>
-        </header>
-        
-        <section>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-id-card me-2"></i>Chase Powers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#volunteer"><i class="fas fa-hands-helping"></i> Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html"><i class="fas fa-home"></i> Main Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="resume-header text-center">
+        <div class="container">
+            <img src="/api/placeholder/150/150" alt="Chase Powers" class="profile-image mb-3">
+            <h1 class="display-4 fw-bold">Chase Powers</h1>
+            <p class="lead fs-4">Pre-Business Student | Project Management | Data Analytics</p>
+            <div class="contact-info">
+                <a href="tel:2534338705"><i class="fas fa-phone-alt"></i> (253) 433-8705</a>
+                <a href="mailto:cvpowers@byu.edu"><i class="fas fa-envelope"></i> cvpowers@byu.edu</a>
+                <a href="https://linkedin.com/in/chase-powers-6b4352223" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="education" class="mb-5">
             <h2 class="section-title">Education</h2>
-            <div>
-                <h4>Brigham Young University (BYU)</h4>
-                <p>Bachelor's Degree in Progress</p>
-                <p>Major: [Your Major]</p>
-            </div>
-        </section>
-        
-        <section>
-            <h2 class="section-title">Work Experience</h2>
-            <div>
-                <h4>BYU Culinary Center</h4>
-                <p>Dock Coordinator, [Start Date] - Present</p>
-                <ul>
-                    <li>Coordinate and manage dock operations to ensure smooth workflow.</li>
-                    <li>Oversee the receiving and distribution of food supplies and equipment.</li>
-                    <li>Maintain inventory records and ensure timely deliveries.</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Delivery Driver Manager</h4>
-                <p>[Previous Company], [Start Date] - [End Date]</p>
-                <ul>
-                    <li>Managed and supervised a team of delivery drivers to ensure efficient operations.</li>
-                    <li>Developed delivery schedules and optimized routes for timely deliveries.</li>
-                    <li>Maintained high levels of customer satisfaction through effective communication and problem-solving.</li>
+            <div class="education-item">
+                <div class="highlight-badge">GPA 3.98</div>
+                <h3 class="institution-name"><i class="fas fa-university me-2"></i>Brigham Young University</h3>
+                <p class="degree-title">Bachelor of Science/Arts: Pre-Business</p>
+                <p>Emphasis on Project Management and Data Analytics</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-award text-primary me-2"></i><strong>Achievements:</strong> Academic Scholarship Recipient | AIS Club Member</li>
+                    <li><i class="fas fa-book text-primary me-2"></i><strong>Relevant Coursework:</strong> Data Analytics, Systems Development</li>
+                    <li><i class="fas fa-laptop-code text-primary me-2"></i><strong>Technical Skills:</strong> Python, HTML/CSS, VBA, SQL</li>
                 </ul>
             </div>
         </section>
-        
-        <section>
-            <h2 class="section-title">Skills</h2>
-            <ul class="list-group">
-                <li class="list-group-item">Team Player: Collaborates effectively with team members to achieve common goals.</li>
-                <li class="list-group-item">Hardworking: Demonstrates strong work ethic and dedication to completing tasks efficiently.</li>
-                <li class="list-group-item">Diligent: Pays attention to detail and ensures accuracy in all work performed.</li>
-            </ul>
+
+        <section id="experience" class="mb-5">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-item">
+                <div class="highlight-badge">Current</div>
+                <h3 class="company-name"><i class="fas fa-utensils me-2"></i>Culinary Support Center</h3>
+                <p class="position-title">Dock Coordinator</p>
+                <ul>
+                    <li>Streamlined inventory and logistics operations, improving overall efficiency.</li>
+                    <li>Coordinated shipments and managed incoming product flow for 10+ daily shipments.</li>
+                    <li>Implemented an inventory tracking system that reduced misplacements.</li>
+                    <li>Maintained compliance with food safety regulations and optimized dock workflow.</li>
+                    <li>Supervised and coordinated a team, ensuring on-time deliveries and effective routes.</li>
+                </ul>
+            </div>
         </section>
-        
-        <section>
-            <h2 class="section-title">Awards and Honors</h2>
-            <ul class="list-group">
-                <li class="list-group-item">Captain of Football and Wrestling Team: Led teams to success and demonstrated strong leadership skills.</li>
-                <li class="list-group-item">2x State Participant in Wrestling: Competed at the state level, showcasing dedication and skill in wrestling.</li>
-                <li class="list-group-item">Served Mission in Colorado Springs: Dedicated two years to serving and helping others in Colorado Springs.</li>
-            </ul>
-        </section>
-    </div>
+    </main>
 </body>
 </html>
